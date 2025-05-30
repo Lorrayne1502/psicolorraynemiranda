@@ -46,12 +46,16 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <nav className="flex justify-between items-center">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center space-x-4">
             <img 
               src="/src/assets/Logo nova.jpg" 
               alt="Lorrayne Miranda" 
-              className="h-12 w-auto mr-2"
+              className="h-16 w-auto"
             />
+            <div className="flex flex-col">
+              <span className="text-xl font-semibold text-[#333333]">Lorrayne Miranda</span>
+              <span className="text-sm text-[#666666]">Psicóloga Clínica</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
