@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
   useEffect(() => {
@@ -40,18 +46,30 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <nav className="flex justify-between items-center">
-          <Link to="/" className="text-2xl font-semibold font-['Playfair_Display']">
-            <span className="text-[#C8B6E2]">Lorrayne</span>
-            <span className="text-[#333333]"> Miranda</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/src/assets/Logo nova.jpg" 
+              alt="Lorrayne Miranda" 
+              className="h-12 w-auto mr-2"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            <NavLink to="/" label="Início" />
-            <NavLink to="/sobre" label="Sobre" />
-            <NavLink to="/servicos" label="Serviços" />
-            <NavLink to="/blog" label="Blog" />
-            <NavLink to="/contato" label="Contato" />
+          <div className="hidden md:flex items-center space-x-8">
+            <NavLink to="/" label={t('nav.home')} />
+            <NavLink to="/sobre" label={t('nav.about')} />
+            <NavLink to="/servicos" label={t('nav.services')} />
+            <NavLink to="/blog" label={t('nav.blog')} />
+            <NavLink to="/contato" label={t('nav.contact')} />
+            
+            {/* Language Selector */}
+            <button
+              onClick={() => changeLanguage('pt-BR')}
+              className="flex items-center text-[#333333] hover:text-[#C8B6E2] transition-colors"
+            >
+              <Globe size={20} className="mr-1" />
+              PT-BR
+            </button>
           </div>
 
           {/* Mobile Navigation Button */}
@@ -68,11 +86,20 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 px-4 fade-in">
             <div className="flex flex-col space-y-4">
-              <NavLink to="/" label="Início" mobile />
-              <NavLink to="/sobre" label="Sobre" mobile />
-              <NavLink to="/servicos" label="Serviços" mobile />
-              <NavLink to="/blog" label="Blog" mobile />
-              <NavLink to="/contato" label="Contato" mobile />
+              <NavLink to="/" label={t('nav.home')} mobile />
+              <NavLink to="/sobre" label={t('nav.about')} mobile />
+              <NavLink to="/servicos" label={t('nav.services')} mobile />
+              <NavLink to="/blog" label={t('nav.blog')} mobile />
+              <NavLink to="/contato" label={t('nav.contact')} mobile />
+              
+              {/* Mobile Language Selector */}
+              <button
+                onClick={() => changeLanguage('pt-BR')}
+                className="flex items-center text-[#333333] hover:text-[#C8B6E2] transition-colors py-2"
+              >
+                <Globe size={20} className="mr-2" />
+                PT-BR
+              </button>
             </div>
           </div>
         )}
