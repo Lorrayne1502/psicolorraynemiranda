@@ -222,7 +222,7 @@ const Services = () => {
                 <h3 className="text-xl font-semibold">Investimento</h3>
               </div>
               <p className="text-[#666666]">
-                O valor por sessão varia entre R$100 e R$150, dependendo do horário e da disponibilidade de vagas com valor social. Os valores podem ser reajustados periodicamente, sempre com aviso prévio e combinado com cuidado com cada pessoa atendida. Aceito pagamento via PIX. Consulte sobre opções de combos com desconto.
+                Os atendimentos são pensados para serem acessíveis, com possibilidade de valores reduzidos conforme horário e disponibilidade de vagas sociais. Os reajustes são comunicados com antecedência e sempre conversados com cuidado e transparência. O pagamento pode ser feito via PIX. Consulte também sobre opções de pacotes com desconto.
               </p>
             </div>
             
