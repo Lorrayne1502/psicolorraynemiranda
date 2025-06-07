@@ -218,12 +218,12 @@ const Contact = () => {
                     <div>
                       <h3 className="text-lg font-medium mb-1">LinkedIn</h3>
                       <a 
-                        href="https://www.linkedin.com/in/lorrayneteixeira" 
+                        href="https://linkedin.com/in/lorrayne-miranda-teixeira" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-[#666666] hover:text-[#C8B6E2] transition-colors"
                       >
-                        linkedin.com/in/lorrayneteixeira
+                        linkedin.com/in/lorrayne-miranda-teixeira
                       </a>
                     </div>
                   </div>
