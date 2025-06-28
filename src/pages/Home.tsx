@@ -53,7 +53,7 @@ const Home = () => {
             <div className="order-1 md:order-2">
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" 
+                  src="/images/perfil.jpg" 
                   alt="Lorrayne Miranda Teixeira - Psicóloga" 
                   className="w-full h-auto object-cover"
                 />

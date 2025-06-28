@@ -182,7 +182,7 @@ const BlogPost = () => {
             <div className="mt-8 bg-[#F5F5DC] p-6 rounded-lg">
               <div className="flex items-center">
                 <img 
-                  src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" 
+                  src="/images/perfil.jpg" 
                   alt="Lorrayne Miranda Teixeira" 
                   className="w-16 h-16 rounded-full object-cover mr-4"
                 />
