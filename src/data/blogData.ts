@@ -43,7 +43,7 @@ export const blogData = [
     id: 6,
     title: "Maternidade e saúde mental: desafios e cuidados",
     excerpt: "Um olhar sensível sobre as pressões da maternidade e a importância do suporte emocional nessa fase.",
-    date: "30 de Abril de 2025",
+    date: "18 de Fevereiro de 2025",
     imageUrl: "https://images.pexels.com/photos/3662850/pexels-photo-3662850.jpeg",
     tags: ["Maternidade", "Saúde Mental", "Autocuidado"]
   }

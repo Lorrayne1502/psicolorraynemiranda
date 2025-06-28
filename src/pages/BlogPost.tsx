@@ -185,6 +185,10 @@ const BlogPost = () => {
                   src="/images/perfil.jpg" 
                   alt="Lorrayne Miranda Teixeira" 
                   className="w-16 h-16 rounded-full object-cover mr-4"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg';
+                  }}
                 />
                 <div>
                   <h3 className="text-lg font-semibold">Lorrayne Miranda Teixeira</h3>

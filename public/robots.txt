@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://psicolorraynemiranda.netlify.app/sitemap.xml

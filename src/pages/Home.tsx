@@ -56,6 +56,10 @@ const Home = () => {
                   src="/images/perfil.jpg" 
                   alt="Lorrayne Miranda Teixeira - Psicóloga" 
                   className="w-full h-auto object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg';
+                  }}
                 />
               </div>
             </div>

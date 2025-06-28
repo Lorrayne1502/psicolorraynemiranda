@@ -35,6 +35,10 @@ const About = () => {
                   src="/images/perfil.jpg" 
                   alt="Lorrayne Miranda - Psicóloga" 
                   className="w-full h-auto object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg';
+                  }}
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">

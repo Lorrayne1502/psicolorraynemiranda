@@ -51,7 +51,17 @@ const Navbar = () => {
               src="/images/logo.jpg" 
               alt="Lorrayne Miranda - Psicóloga" 
               className="h-16 w-auto object-contain"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const fallback = target.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = 'block';
+              }}
             />
+            <div className="flex flex-col" style={{ display: 'none' }}>
+              <span className="text-xl font-semibold text-[#333333]">Lorrayne Miranda</span>
+              <span className="text-sm text-[#666666]">Psicóloga Clínica</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -66,6 +76,7 @@ const Navbar = () => {
             <button
               onClick={() => changeLanguage('pt-BR')}
               className="flex items-center text-[#333333] hover:text-[#C8B6E2] transition-colors"
+              aria-label="Alterar idioma"
             >
               <Globe size={20} className="mr-1" />
               PT-BR
@@ -77,6 +88,7 @@ const Navbar = () => {
             className="md:hidden focus:outline-none" 
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -96,6 +108,7 @@ const Navbar = () => {
               <button
                 onClick={() => changeLanguage('pt-BR')}
                 className="flex items-center text-[#333333] hover:text-[#C8B6E2] transition-colors py-2"
+                aria-label="Alterar idioma"
               >
                 <Globe size={20} className="mr-2" />
                 PT-BR
