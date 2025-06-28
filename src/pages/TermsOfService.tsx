@@ -160,7 +160,7 @@ const TermsOfService = () => {
             <h3>10.2 Foro Competente</h3>
             <p>
               Para questões não resolvidas amigavelmente, fica eleito o foro da comarca de 
-              Belo Horizonte/MG, com renúncia expressa a qualquer outro.
+              Campo Bom/RS, com renúncia expressa a qualquer outro.
             </p>
             
             <h2>11. Modificações dos Termos</h2>

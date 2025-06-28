@@ -206,9 +206,10 @@ const Contact = () => {
                   <div className="flex items-start">
                     <MapPin size={24} className="text-[#C8B6E2] mt-1 mr-4 flex-shrink-0" />
                     <div>
-                      <h3 className="text-lg font-medium mb-1">Endereço</h3>
+                      <h3 className="text-lg font-medium mb-1">Localização</h3>
                       <p className="text-[#666666]">
-                        
+                        Campo Bom - RS<br />
+                        <span className="text-sm text-[#999999]">Atendimento online</span>
                       </p>
                     </div>
                   </div>
@@ -286,14 +287,14 @@ const Contact = () => {
           <div className="bg-white p-4 rounded-lg shadow-lg overflow-hidden">
             <div className="aspect-w-16 aspect-h-9 h-96">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27629.292546560483!2d-51.22850542089842!3d-30.03283970000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95199cd2566acb1d%3A0x603111a89f87e91f!2sPorto%20Alegre%2C%20RS!5e0!3m2!1spt-BR!2sbr!4v1693499413404!5m2!1spt-BR!2sbr" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14256.234567890123!2d-51.05!3d-29.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95196f5b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sCampo%20Bom%2C%20RS!5e0!3m2!1spt-BR!2sbr!4v1693499413404!5m2!1spt-BR!2sbr" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Localização do consultório"
+                title="Localização - Campo Bom, RS"
               ></iframe>
             </div>
           </div>

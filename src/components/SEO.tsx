@@ -10,9 +10,9 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = "Lorrayne Miranda - Psicóloga Clínica | Psicoterapia Online para Mulheres",
-  description = "Psicóloga clínica especializada no atendimento de mulheres. Psicoterapia online com abordagem humanista-existencial. CRP 07/39636",
-  keywords = "psicóloga, psicoterapia, saúde mental, mulheres, terapia online, ansiedade, autoestima",
+  title = "Lorrayne Miranda - Psicóloga Clínica | Psicoterapia Online | Campo Bom-RS",
+  description = "Psicóloga clínica especializada no atendimento de mulheres. Psicoterapia online com abordagem humanista-existencial. Campo Bom-RS. CRP 07/39636",
+  keywords = "psicóloga, psicoterapia, saúde mental, mulheres, terapia online, ansiedade, autoestima, Campo Bom, Rio Grande do Sul",
   image = "/images/perfil.jpg",
   url = "https://psicolorraynemiranda.netlify.app",
   type = "website"
