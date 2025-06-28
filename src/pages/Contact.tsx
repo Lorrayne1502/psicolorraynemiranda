@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, AlertTriangle } from 'lucide-react';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 
@@ -45,6 +45,35 @@ const Contact = () => {
             subtitle="Estou aqui para tirar suas dúvidas e agendar sua consulta"
             centered
           />
+        </div>
+      </section>
+      
+      {/* Emergency Notice */}
+      <section className="bg-red-50 border-l-4 border-red-400 py-6">
+        <div className="container mx-auto px-4">
+          <div className="flex items-start">
+            <AlertTriangle size={24} className="text-red-500 mr-4 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold text-red-800 mb-2">
+                Situações de Emergência
+              </h3>
+              <p className="text-red-700 mb-3">
+                <strong>Em caso de emergência psiquiátrica, ideação suicida ou risco iminente à vida, 
+                procure ajuda imediata:</strong>
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white p-3 rounded border border-red-200">
+                  <p className="font-semibold text-red-800">SAMU: <span className="text-xl">192</span></p>
+                </div>
+                <div className="bg-white p-3 rounded border border-red-200">
+                  <p className="font-semibold text-red-800">CVV: <span className="text-xl">188</span></p>
+                </div>
+                <div className="bg-white p-3 rounded border border-red-200">
+                  <p className="font-semibold text-red-800">Emergência: <span className="text-xl">190/193</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
@@ -153,7 +182,15 @@ const Contact = () => {
                       required
                       rows={6}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#C8B6E2]"
+                      placeholder="Descreva brevemente o que você gostaria de conversar ou suas dúvidas sobre o processo terapêutico..."
                     ></textarea>
+                  </div>
+                  
+                  <div className="bg-[#FCE4EE] p-4 rounded-lg mb-6">
+                    <p className="text-sm text-[#666666]">
+                      <strong>Importante:</strong> Este formulário não deve ser usado para situações de emergência. 
+                      Em casos de crise, procure ajuda imediata através dos números de emergência listados acima.
+                    </p>
                   </div>
                   
                   <div className="text-center">
@@ -274,6 +311,13 @@ const Contact = () => {
                     <Phone size={18} className="mr-2" />
                     Agendar pelo WhatsApp
                   </Button>
+                </div>
+                
+                <div className="mt-4 p-4 bg-[#FCE4EE] rounded-lg">
+                  <p className="text-sm text-[#666666]">
+                    <strong>Lembre-se:</strong> Para emergências, utilize os números de emergência. 
+                    O WhatsApp é para agendamentos e dúvidas não urgentes.
+                  </p>
                 </div>
               </div>
             </div>

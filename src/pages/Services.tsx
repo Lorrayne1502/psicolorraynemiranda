@@ -1,4 +1,4 @@
-import { MessagesSquare, Heart, ShieldCheck, Bookmark, AlarmCheck, Clock, CreditCard, Check } from 'lucide-react';
+import { MessagesSquare, Heart, ShieldCheck, Bookmark, AlarmCheck, Clock, CreditCard, Check, AlertTriangle, Phone } from 'lucide-react';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 
@@ -19,6 +19,47 @@ const Services = () => {
             focada nas necessidades e potencialidades de cada pessoa. Realizo atendimentos exclusivamente online, 
             oferecendo mais praticidade e conforto para quem busca cuidar de si no ritmo da própria rotina.
           </p>
+        </div>
+      </section>
+      
+      {/* Emergency Notice */}
+      <section className="bg-red-50 border-l-4 border-red-400 py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex items-start">
+            <AlertTriangle size={24} className="text-red-500 mr-4 flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-xl font-semibold text-red-800 mb-3">
+                Importante: Situações de Emergência
+              </h3>
+              <div className="text-red-700 space-y-3">
+                <p>
+                  <strong>Em caso de emergência psiquiátrica, ideação suicida ou risco iminente à vida, 
+                  procure imediatamente:</strong>
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                  <div className="bg-white p-4 rounded-lg border border-red-200">
+                    <h4 className="font-semibold text-red-800 mb-2">SAMU</h4>
+                    <p className="text-2xl font-bold text-red-600">192</p>
+                    <p className="text-sm">Atendimento médico de urgência</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg border border-red-200">
+                    <h4 className="font-semibold text-red-800 mb-2">CVV</h4>
+                    <p className="text-2xl font-bold text-red-600">188</p>
+                    <p className="text-sm">Centro de Valorização da Vida</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg border border-red-200">
+                    <h4 className="font-semibold text-red-800 mb-2">Emergência</h4>
+                    <p className="text-2xl font-bold text-red-600">190/193</p>
+                    <p className="text-sm">Polícia Militar / Bombeiros</p>
+                  </div>
+                </div>
+                <p className="text-sm mt-4">
+                  <strong>Importante:</strong> A psicoterapia online não substitui atendimento médico de emergência. 
+                  Em situações de crise aguda, busque ajuda presencial imediata em hospitais ou unidades de pronto atendimento.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
@@ -131,6 +172,163 @@ const Services = () => {
                 <Button to="/contato" variant="outline" className="w-full border-[#F8C8DC] text-[#F0A8C8] hover:bg-[#F8C8DC] hover:text-white">
                   Agendar Consulta
                 </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Limitações e Emergências */}
+      <section className="bg-[#FCE4EE] py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <SectionTitle 
+            title="Limitações do Atendimento Online"
+            subtitle="Informações importantes sobre o alcance e limitações da psicoterapia online"
+            centered
+          />
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              {/* O que a terapia online pode oferecer */}
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-[#D8EBDD] rounded-full flex items-center justify-center mr-4">
+                    <Check size={24} className="text-[#94B89A]" />
+                  </div>
+                  <h3 className="text-xl font-semibold">O que posso oferecer</h3>
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <Check size={16} className="text-[#94B89A] mt-1 mr-2 flex-shrink-0" />
+                    <span>Psicoterapia individual para questões emocionais</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check size={16} className="text-[#94B89A] mt-1 mr-2 flex-shrink-0" />
+                    <span>Acolhimento em momentos de sofrimento</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check size={16} className="text-[#94B89A] mt-1 mr-2 flex-shrink-0" />
+                    <span>Desenvolvimento de estratégias de enfrentamento</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check size={16} className="text-[#94B89A] mt-1 mr-2 flex-shrink-0" />
+                    <span>Orientação para autocuidado e bem-estar</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check size={16} className="text-[#94B89A] mt-1 mr-2 flex-shrink-0" />
+                    <span>Suporte em transições e mudanças de vida</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Limitações */}
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-[#FCE4EE] rounded-full flex items-center justify-center mr-4">
+                    <AlertTriangle size={24} className="text-[#F0A8C8]" />
+                  </div>
+                  <h3 className="text-xl font-semibold">Limitações importantes</h3>
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <AlertTriangle size={16} className="text-[#F0A8C8] mt-1 mr-2 flex-shrink-0" />
+                    <span>Não realizo atendimento de emergências psiquiátricas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <AlertTriangle size={16} className="text-[#F0A8C8] mt-1 mr-2 flex-shrink-0" />
+                    <span>Não substituo tratamento médico ou psiquiátrico</span>
+                  </li>
+                  <li className="flex items-start">
+                    <AlertTriangle size={16} className="text-[#F0A8C8] mt-1 mr-2 flex-shrink-0" />
+                    <span>Não atendo casos de risco iminente à vida</span>
+                  </li>
+                  <li className="flex items-start">
+                    <AlertTriangle size={16} className="text-[#F0A8C8] mt-1 mr-2 flex-shrink-0" />
+                    <span>Não prescrevo ou oriento sobre medicamentos</span>
+                  </li>
+                  <li className="flex items-start">
+                    <AlertTriangle size={16} className="text-[#F0A8C8] mt-1 mr-2 flex-shrink-0" />
+                    <span>Não realizo avaliações para laudos ou perícias</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* Protocolo de Emergência */}
+            <div className="bg-red-50 border border-red-200 p-8 rounded-lg">
+              <div className="flex items-start mb-6">
+                <Phone size={32} className="text-red-500 mr-4 flex-shrink-0" />
+                <div>
+                  <h3 className="text-2xl font-semibold text-red-800 mb-2">
+                    Protocolo para Situações de Emergência
+                  </h3>
+                  <p className="text-red-700">
+                    Conforme as diretrizes do Conselho Federal de Psicologia (CFP)
+                  </p>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-red-800 mb-3">
+                    Se você está em crise ou com pensamentos de autolesão:
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-white p-4 rounded-lg border border-red-200">
+                      <h5 className="font-semibold text-red-700 mb-2">1. Busque ajuda imediata</h5>
+                      <ul className="text-sm space-y-1">
+                        <li>• Ligue 192 (SAMU)</li>
+                        <li>• Vá ao hospital mais próximo</li>
+                        <li>• Procure um familiar ou amigo</li>
+                      </ul>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg border border-red-200">
+                      <h5 className="font-semibold text-red-700 mb-2">2. Suporte 24h disponível</h5>
+                      <ul className="text-sm space-y-1">
+                        <li>• CVV: 188 (24h gratuito)</li>
+                        <li>• Chat CVV: cvv.org.br</li>
+                        <li>• CAPS mais próximo</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg border border-red-200">
+                  <h4 className="font-semibold text-red-800 mb-3">
+                    Minha responsabilidade profissional:
+                  </h4>
+                  <ul className="space-y-2 text-red-700">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span>
+                        <strong>Quebra de sigilo:</strong> Em situações de risco iminente à vida, 
+                        posso quebrar o sigilo profissional para proteger você, conforme Art. 10 
+                        do Código de Ética Profissional do Psicólogo.
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span>
+                        <strong>Encaminhamento:</strong> Orientarei sobre a necessidade de 
+                        atendimento presencial especializado quando necessário.
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span>
+                        <strong>Comunicação com familiares:</strong> Em casos extremos, 
+                        poderei contatar familiares ou pessoas de referência para garantir sua segurança.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="text-center">
+                  <p className="text-red-700 font-medium">
+                    Lembre-se: Buscar ajuda é um ato de coragem e autocuidado. 
+                    Você não está sozinha nessa jornada.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
