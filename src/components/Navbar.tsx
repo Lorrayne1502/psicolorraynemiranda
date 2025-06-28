@@ -48,9 +48,9 @@ const Navbar = () => {
         <nav className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-4">
             <img 
-              src="/src/assets/Logo nova.jpg" 
+              src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" 
               alt="Lorrayne Miranda" 
-              className="h-16 w-auto"
+              className="h-16 w-16 rounded-full object-cover"
             />
             <div className="flex flex-col">
               <span className="text-xl font-semibold text-[#333333]">Lorrayne Miranda</span>

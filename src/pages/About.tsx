@@ -32,7 +32,7 @@ const About = () => {
             <div className="relative">
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <img 
-                  src="/src/assets/PERFIL.jpg" 
+                  src="https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg" 
                   alt="Lorrayne Miranda - Psicóloga" 
                   className="w-full h-auto object-cover"
                 />
