@@ -6,6 +6,8 @@ import Services from './pages/Services';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import BlogPost from './pages/BlogPost';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorBoundary from './components/ErrorBoundary';
 import './App.css';
@@ -23,6 +25,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/contato" element={<Contact />} />
+            <Route path="/termos-de-uso" element={<TermsOfService />} />
+            <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
           </Routes>
         </Layout>
       </Router>
