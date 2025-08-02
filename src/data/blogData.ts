@@ -4,7 +4,7 @@ export const blogData = [
     title: "A importância do autocuidado para a saúde mental",
     excerpt: "Descubra como práticas de autocuidado podem melhorar sua qualidade de vida e prevenir o esgotamento emocional.",
     date: "15 de Março de 2024",
-    imageUrl: "https://images.pexels.com/photos/3807738/pexels-photo-3807738.jpeg",
+    imageUrl: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg",
     tags: ["Autocuidado", "Saúde Mental", "Bem-estar"]
   },
   {
@@ -12,7 +12,7 @@ export const blogData = [
     title: "Ansiedade: quando buscar ajuda profissional?",
     excerpt: "Saiba identificar os sinais de que a ansiedade está afetando sua qualidade de vida e como a psicoterapia pode ajudar.",
     date: "28 de Janeiro de 2024",
-    imageUrl: "https://images.pexels.com/photos/3807758/pexels-photo-3807758.jpeg",
+    imageUrl: "https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg",
     tags: ["Ansiedade", "Terapia", "Saúde Mental"]
   },
   {
@@ -20,7 +20,7 @@ export const blogData = [
     title: "Relacionamentos saudáveis: como construir conexões genuínas",
     excerpt: "Dicas para desenvolver relações baseadas em respeito, comunicação efetiva e limites saudáveis.",
     date: "10 de Maio de 2024",
-    imageUrl: "https://images.pexels.com/photos/3807755/pexels-photo-3807755.jpeg",
+    imageUrl: "https://images.pexels.com/photos/5699479/pexels-photo-5699479.jpeg",
     tags: ["Relacionamentos", "Autoconhecimento", "Comunicação"]
   },
   {
@@ -28,7 +28,7 @@ export const blogData = [
     title: "O poder da vulnerabilidade no processo terapêutico",
     excerpt: "Como se permitir ser vulnerável pode ser um catalisador para o crescimento pessoal e a cura emocional.",
     date: "25 de Julho de 2024",
-    imageUrl: "https://images.pexels.com/photos/3807760/pexels-photo-3807760.jpeg",
+    imageUrl: "https://images.pexels.com/photos/3771115/pexels-photo-3771115.jpeg",
     tags: ["Terapia", "Vulnerabilidade", "Crescimento Pessoal"]
   },
   {
@@ -36,7 +36,7 @@ export const blogData = [
     title: "Autenticidade: sendo você mesma em um mundo de expectativas",
     excerpt: "Reflita sobre a importância de ser fiel a si mesma e como isso impacta positivamente sua saúde mental.",
     date: "12 de Setembro de 2024",
-    imageUrl: "https://images.pexels.com/photos/3807763/pexels-photo-3807763.jpeg",
+    imageUrl: "https://images.pexels.com/photos/3771120/pexels-photo-3771120.jpeg",
     tags: ["Autenticidade", "Autoestima", "Bem-estar"]
   },
   {
@@ -44,7 +44,8 @@ export const blogData = [
     title: "Maternidade e saúde mental: desafios e cuidados",
     excerpt: "Um olhar sensível sobre as pressões da maternidade e a importância do suporte emocional nessa fase.",
     date: "18 de Fevereiro de 2025",
-    imageUrl: "https://images.pexels.com/photos/3807765/pexels-photo-3807765.jpeg",
+    imageUrl: "https://images.pexels.com/photos/3912477/pexels-photo-3912477.jpeg",
     tags: ["Maternidade", "Saúde Mental", "Autocuidado"]
   }
 ];
+    imageUrl: "https://images.pexels.com/photos/3771118/pexels-photo-3771118.jpeg",
