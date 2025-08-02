@@ -8,7 +8,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-24 pb-16 px-4">
         <div 
-          className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3807738/pexels-photo-3807738.jpeg')] bg-cover bg-center"
+          className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg')] bg-cover bg-center"
           style={{ opacity: 0.15 }}
         ></div>
         <div className="container mx-auto z-10">
@@ -58,7 +58,7 @@ const Home = () => {
                   className="w-full h-auto object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'https://images.pexels.com/photos/3807738/pexels-photo-3807738.jpeg';
+                    target.src = 'https://images.pexels.com/photos/3771115/pexels-photo-3771115.jpeg';
                   }}
                 />
               </div>

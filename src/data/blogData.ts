@@ -46,5 +46,13 @@ export const blogData = [
     date: "18 de Fevereiro de 2025",
     imageUrl: "https://images.pexels.com/photos/3912477/pexels-photo-3912477.jpeg",
     tags: ["Maternidade", "Saúde Mental", "Autocuidado"]
+  },
+  {
+    id: 7,
+    title: "Lidando com a exaustão emocional: sinais e estratégias",
+    excerpt: "Reconheça os sinais de esgotamento emocional e aprenda estratégias eficazes para recuperar seu equilíbrio.",
+    date: "5 de Janeiro de 2025",
+    imageUrl: "https://images.pexels.com/photos/3807767/pexels-photo-3807767.jpeg",
+    tags: ["Exaustão", "Burnout", "Recuperação"]
   }
 ];

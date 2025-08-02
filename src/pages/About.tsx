@@ -37,7 +37,7 @@ const About = () => {
                   className="w-full h-auto object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'https://images.pexels.com/photos/3807738/pexels-photo-3807738.jpeg';
+                    target.src = 'https://images.pexels.com/photos/3771115/pexels-photo-3771115.jpeg';
                   }}
                 />
               </div>
