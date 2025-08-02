@@ -48,4 +48,3 @@ export const blogData = [
     tags: ["Maternidade", "Saúde Mental", "Autocuidado"]
   }
 ];
-    imageUrl: "https://images.pexels.com/photos/3807767/pexels-photo-3807767.jpeg",
