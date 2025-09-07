@@ -46,7 +46,7 @@ export const blogData = [
     date: "18 de Fevereiro de 2025",
     imageUrl: "https://images.pexels.com/photos/1556652/pexels-photo-1556652.jpeg",
     tags: ["Maternidade", "Saúde Mental", "Autocuidado"]
-  }
+  },
   {
     id: 7,
     title: "7 de Setembro: um olhar para a saúde mental e a valorização da vida",
