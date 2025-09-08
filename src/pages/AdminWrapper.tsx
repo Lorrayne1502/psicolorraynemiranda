@@ -1,22 +1,27 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import Admin from './pages/Admin';
-import { UserPost } from './components/BlogManager';
+import { Navigate } from 'react-router-dom';
 
-const AdminWrapper = () => {
-  const [userPosts, setUserPosts] = useState<UserPost[]>([]);
+const AdminWrapper: React.FC = () => {
+  // Aqui você verifica se o usuário está autenticado
+  const isAuthenticated = Boolean(localStorage.getItem('userLogged')); // exemplo simples
 
-  useEffect(() => {
-    const savedPosts = JSON.parse(localStorage.getItem('userPosts') || '[]');
-    setUserPosts(savedPosts);
-  }, []);
+  if (!isAuthenticated) {
+    // Se não estiver logado, redireciona para o blog ou login
+    return <Navigate to="/blog" replace />;
+  }
 
-  const handleNewPost = (post: UserPost) => {
-    const updatedPosts = [post, ...userPosts];
-    setUserPosts(updatedPosts);
-    localStorage.setItem('userPosts', JSON.stringify(updatedPosts));
-  };
-
-  return <Admin onNewPost={handleNewPost} />;
+  // Se estiver autenticado, exibe o Admin
+  return (
+    <div>
+      <header style={{ padding: '1rem', backgroundColor: '#f2f2f2' }}>
+        <h2>Painel Administrativo</h2>
+      </header>
+      <main style={{ padding: '1rem' }}>
+        <Admin />
+      </main>
+    </div>
+  );
 };
 
 export default AdminWrapper;
