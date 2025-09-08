@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, Tags } from 'lucide-react';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
-import { blogData } from '../data/blogData';
+import BlogManager from '../components/BlogManager';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
