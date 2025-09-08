@@ -1,71 +1,98 @@
 import React, { useState } from 'react';
 
-interface Post {
+export interface UserPost {
+  id: number;
   title: string;
   date: string;
   content: string;
-  image?: string; // imagem como base64
+  imageUrl?: string;
+  tags: string[];
   suggestions: string[];
 }
 
-const BlogManager: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+interface BlogManagerProps {
+  onNewPost?: (post: UserPost) => void;
+}
+
+const BlogManager: React.FC<BlogManagerProps> = ({ onNewPost }) => {
   const [showForm, setShowForm] = useState(false);
-  const [newPost, setNewPost] = useState<Post>({
+  const [newPost, setNewPost] = useState({
     title: '',
     date: '',
     content: '',
-    image: '',
-    suggestions: []
+    imageFile: null as File | null,
+    tags: '',
   });
-  const [suggestionInput, setSuggestionInput] = useState('');
 
-  // Atualiza campos de texto
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setNewPost({ ...newPost, [e.target.name]: e.target.value });
   };
 
-  // Lê a imagem e converte para base64
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setNewPost({ ...newPost, image: event.target?.result as string });
-      };
-      reader.readAsDataURL(e.target.files[0]);
+      setNewPost({ ...newPost, imageFile: e.target.files[0] });
     }
   };
 
-  // Publica post
-  const handleSubmit = (e: React.FormEvent) => {
+  const resizeImage = (file: File, maxWidth: number, maxHeight: number): Promise<string> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxWidth) {
+          height *= maxWidth / width;
+          width = maxWidth;
+        }
+        if (height > maxHeight) {
+          width *= maxHeight / height;
+          height = maxHeight;
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx?.drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', 0.7));
+      };
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newPost.title || !newPost.date || !newPost.content) return;
-    setPosts([newPost, ...posts]);
-    setNewPost({ title: '', date: '', content: '', image: '', suggestions: [] });
+
+    let imageUrl = '';
+    if (newPost.imageFile) {
+      imageUrl = await resizeImage(newPost.imageFile, 800, 600); // tamanho reduzido
+    }
+
+    const userPost: UserPost = {
+      id: Date.now(),
+      title: newPost.title,
+      date: newPost.date,
+      content: newPost.content,
+      imageUrl,
+      tags: newPost.tags.split(',').map(t => t.trim()).filter(Boolean),
+      suggestions: [],
+    };
+
+    onNewPost?.(userPost);
+
+    setNewPost({ title: '', date: '', content: '', imageFile: null, tags: '' });
     setShowForm(false);
   };
 
-  // Adiciona sugestão
-  const handleSuggestionSubmit = (postIndex: number) => {
-    if (!suggestionInput) return;
-    const updatedPosts = [...posts];
-    updatedPosts[postIndex].suggestions.push(suggestionInput);
-    setPosts(updatedPosts);
-    setSuggestionInput('');
-  };
-
   return (
-    <div className="max-w-3xl mx-auto p-4">
-      {/* Botão para abrir formulário */}
+    <div>
       <button
         onClick={() => setShowForm(!showForm)}
         className="px-4 py-2 mb-4 rounded text-white"
-        style={{ backgroundColor: 'var(--theme-color)' }} // cor do tema
+        style={{ backgroundColor: 'var(--theme-color)' }}
       >
         {showForm ? 'Cancelar' : 'Adicionar Nova Postagem'}
       </button>
 
-      {/* Formulário */}
       {showForm && (
         <form onSubmit={handleSubmit} className="mb-6 bg-gray-100 p-4 rounded">
           <input
@@ -91,9 +118,17 @@ const BlogManager: React.FC = () => {
             className="w-full mb-2 p-2 border rounded h-32"
           />
           <input
+            type="text"
+            name="tags"
+            placeholder="Tags separadas por vírgula"
+            value={newPost.tags}
+            onChange={handleChange}
+            className="w-full mb-2 p-2 border rounded"
+          />
+          <input
             type="file"
             accept="image/*"
-            onChange={handleImageUpload}
+            onChange={handleImageChange}
             className="w-full mb-2"
           />
           <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded">
@@ -101,47 +136,9 @@ const BlogManager: React.FC = () => {
           </button>
         </form>
       )}
-
-      {/* Posts */}
-      <div>
-        {posts.map((post, index) => (
-          <div key={index} className="mb-6 p-4 border rounded shadow-sm">
-            <h2 className="text-xl font-bold mb-1">{post.title}</h2>
-            <p className="text-gray-500 text-sm mb-2">{post.date}</p>
-            {post.image && (
-              <img src={post.image} alt={post.title} className="mb-2 rounded max-h-64 object-cover w-full" />
-            )}
-            <p className="mb-2">{post.content}</p>
-
-            {/* Campo de sugestões */}
-            <div className="mt-4">
-              <h3 className="font-semibold mb-1">Sugestões para o próximo post:</h3>
-              <div className="flex gap-2 mb-2">
-                <input
-                  type="text"
-                  placeholder="Digite sua sugestão"
-                  value={suggestionInput}
-                  onChange={(e) => setSuggestionInput(e.target.value)}
-                  className="flex-1 p-2 border rounded"
-                />
-                <button
-                  onClick={() => handleSuggestionSubmit(index)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded"
-                >
-                  Enviar
-                </button>
-              </div>
-              <ul className="text-sm list-disc list-inside">
-                {post.suggestions.map((sug, i) => (
-                  <li key={i}>{sug}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
 
 export default BlogManager;
+
