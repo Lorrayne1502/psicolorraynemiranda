@@ -1,19 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Tags } from 'lucide-react';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
-import BlogManager, { UserPost } from '../components/BlogManager';
 import { blogData } from '../data/blogData';
 
-interface Post extends UserPost {
+interface Post {
+  id: number;
+  title: string;
+  content: string;
   excerpt?: string;
+  date: string;
+  imageUrl?: string;
+  tags: string[];
+  suggestions?: string[];
+  isUserPost?: boolean;
 }
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [userPosts, setUserPosts] = useState<Post[]>([]);
+
+  // Carrega posts criados pelo usuário do localStorage
+  useEffect(() => {
+    const savedPosts = JSON.parse(localStorage.getItem('userPosts') || '[]');
+    setUserPosts(savedPosts);
+  }, []);
 
   const allPosts: Post[] = [
     ...userPosts,
@@ -31,6 +44,7 @@ const Blog = () => {
 
   return (
     <div className="pt-24">
+      {/* Hero + Pesquisa + Filtros */}
       <section className="bg-[#DFD6F0] py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <SectionTitle 
@@ -67,12 +81,7 @@ const Blog = () => {
         </div>
       </section>
 
-      <section className="py-8">
-        <div className="container mx-auto px-4">
-          <BlogManager onNewPost={(post) => setUserPosts([post, ...userPosts])} />
-        </div>
-      </section>
-
+      {/* Posts */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           {filteredPosts.length > 0 ? (
