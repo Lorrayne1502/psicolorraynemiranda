@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './Button';
 
 export interface UserPost {
   id: number;
@@ -15,7 +16,6 @@ interface BlogManagerProps {
 }
 
 const BlogManager: React.FC<BlogManagerProps> = ({ onNewPost }) => {
-  const [showForm, setShowForm] = useState(false);
   const [newPost, setNewPost] = useState({
     title: '',
     date: '',
@@ -64,7 +64,7 @@ const BlogManager: React.FC<BlogManagerProps> = ({ onNewPost }) => {
 
     let imageUrl = '';
     if (newPost.imageFile) {
-      imageUrl = await resizeImage(newPost.imageFile, 800, 600); // tamanho reduzido
+      imageUrl = await resizeImage(newPost.imageFile, 800, 600);
     }
 
     const userPost: UserPost = {
@@ -79,65 +79,51 @@ const BlogManager: React.FC<BlogManagerProps> = ({ onNewPost }) => {
 
     onNewPost?.(userPost);
 
+    const savedPosts = JSON.parse(localStorage.getItem('userPosts') || '[]');
+    localStorage.setItem('userPosts', JSON.stringify([userPost, ...savedPosts]));
+
     setNewPost({ title: '', date: '', content: '', imageFile: null, tags: '' });
-    setShowForm(false);
   };
 
   return (
-    <div>
-      <button
-        onClick={() => setShowForm(!showForm)}
-        className="px-4 py-2 mb-4 rounded text-white"
-        style={{ backgroundColor: 'var(--theme-color)' }}
-      >
-        {showForm ? 'Cancelar' : 'Adicionar Nova Postagem'}
-      </button>
-
-      {showForm && (
-        <form onSubmit={handleSubmit} className="mb-6 bg-gray-100 p-4 rounded">
-          <input
-            type="text"
-            name="title"
-            placeholder="Título"
-            value={newPost.title}
-            onChange={handleChange}
-            className="w-full mb-2 p-2 border rounded"
-          />
-          <input
-            type="date"
-            name="date"
-            value={newPost.date}
-            onChange={handleChange}
-            className="w-full mb-2 p-2 border rounded"
-          />
-          <textarea
-            name="content"
-            placeholder="Conteúdo"
-            value={newPost.content}
-            onChange={handleChange}
-            className="w-full mb-2 p-2 border rounded h-32"
-          />
-          <input
-            type="text"
-            name="tags"
-            placeholder="Tags separadas por vírgula"
-            value={newPost.tags}
-            onChange={handleChange}
-            className="w-full mb-2 p-2 border rounded"
-          />
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="w-full mb-2"
-          />
-          <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded">
-            Publicar
-          </button>
-        </form>
-      )}
-    </div>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input
+        type="text"
+        name="title"
+        placeholder="Título"
+        value={newPost.title}
+        onChange={handleChange}
+        className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-[#C8B6E2]"
+      />
+      <input
+        type="date"
+        name="date"
+        value={newPost.date}
+        onChange={handleChange}
+        className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-[#C8B6E2]"
+      />
+      <textarea
+        name="content"
+        placeholder="Conteúdo"
+        value={newPost.content}
+        onChange={handleChange}
+        className="w-full p-3 border rounded h-32 focus:outline-none focus:ring-2 focus:ring-[#C8B6E2]"
+      />
+      <input
+        type="text"
+        name="tags"
+        placeholder="Tags separadas por vírgula"
+        value={newPost.tags}
+        onChange={handleChange}
+        className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-[#C8B6E2]"
+      />
+      <input type="file" accept="image/*" onChange={handleImageChange} className="w-full" />
+      <Button type="submit" className="w-full">
+        Publicar
+      </Button>
+    </form>
   );
 };
 
 export default BlogManager;
+
