@@ -141,4 +141,3 @@ const BlogManager: React.FC<BlogManagerProps> = ({ onNewPost }) => {
 };
 
 export default BlogManager;
-
